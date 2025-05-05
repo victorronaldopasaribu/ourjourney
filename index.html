@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Love Story</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@400;700&display=swap');
+
+/* html {
+  scroll-behavior: smooth;
+} */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(to bottom, #000000, #1a1a1a);
+  /* font-family: 'Inter', sans-serif; */
+  /* font-family: 'Alex Brush', cursive; */
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  /* font-family: 'Tangerine', cursive; */
+  font-family: 'Satisfy', cursive;
+
+  color: white;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px 20px;
+}
+
+.section {
+  margin-bottom: 80px;
+  position: relative;
+  animation: fadeInUp 1.5s ease both;
+}
+
+.section:nth-child(even) .content {
+  flex-direction: row-reverse;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.text {
+  flex: 1;
+}
+
+.text h2 {
+  font-size: 2.5rem;
+  font-family: 'Great Vibes', cursive;
+  color: #f6c90e;
+  margin-bottom: 10px;
+}
+
+.text p {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+.image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(246, 201, 14, 0.3);
+  animation: zoomFade 3s ease-in-out infinite alternate;
+}
+
+.image img {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: brightness(0.9) contrast(1.1);
+  animation: fadeInImage 1.5s ease-out forwards;
+}
+
+.image:hover img {
+  transform: scale(1.05);
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.heart {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center/contain;
+  animation: floatHeart 4s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+.heart:nth-child(1) { top: -30px; left: 30%; animation-delay: 0s; }
+.heart:nth-child(2) { top: -40px; left: 60%; animation-delay: 1s; }
+.heart:nth-child(3) { top: -20px; left: 80%; animation-delay: 2s; }
+
+.footer {
+  text-align: center;
+  margin-top: 100px;
+  font-size: 1.2rem;
+  color: #888;
+  font-style: italic;
+}
+
+.chat-preview {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px 20px;
+  border-left: 4px solid #f6c90e;
+  border-radius: 10px;
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-top: 10px;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 15px;
+  transition: transform 0.5s ease;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+  animation: fadeInImage 2s ease-out forwards;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Animasi */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatHeart {
+  0% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-30px) scale(1.2); opacity: 0.7; }
+  100% { transform: translateY(-60px) scale(1); opacity: 0.4; }
+}
+
+@keyframes zoomFade {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
+@keyframes fadeInImage {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Animasi delay untuk gallery */
+.gallery img:nth-child(1) { animation-delay: 0.1s; }
+.gallery img:nth-child(2) { animation-delay: 0.3s; }
+.gallery img:nth-child(3) { animation-delay: 0.5s; }
+.gallery img:nth-child(4) { animation-delay: 0.7s; }
+.gallery img:nth-child(5) { animation-delay: 0.9s; }
+.gallery img:nth-child(6) { animation-delay: 1.1s; }
+
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0) scale(0.8) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-200px) scale(1.2) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.floating-icons {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.floating-icons span {
+  position: absolute;
+  font-size: 20px;
+  animation: floatIcon 4s linear infinite;
+  color: #ff99cc;
+  opacity: 0;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.emoji-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+}
+
+.emoji-overlay span {
+  position: absolute;
+  font-size: 20px;
+  animation: floatEmoji 4s ease-in-out forwards;
+  opacity: 0;
+}
+
+@keyframes floatEmoji {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) scale(1.3) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.romantic-transition {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #fff0f5, #ffe4e1); /* soft pink gradient */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.falling-heart {
+  position: absolute;
+  font-size: 24px;
+  animation: fall 4s infinite ease-in;
+  opacity: 0.8;
+}
+
+.falling-heart:nth-child(1) {
+  left: 30%;
+  animation-delay: 0s;
+}
+.falling-heart:nth-child(2) {
+  left: 50%;
+  animation-delay: 1s;
+}
+.falling-heart:nth-child(3) {
+  left: 70%;
+  animation-delay: 2s;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-20px) rotate(0deg);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.romantic-divider {
+  position: relative;
+  height: 300px;
+  margin-top: 60px;
+  margin-bottom: -60px;
+  overflow: visible;
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  animation: waveFloat 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+/* Base love shadow style */
+.floating-love-shadow {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  top: -50px;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.love-shadow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255,192,203,0.6) 0%, rgba(255,192,203,0) 70%);
+  border-radius: 50% 50% 0 0;
+  transform: rotate(45deg);
+  animation: floatLove 6s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.love-shadow::before,
+.love-shadow::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255,192,203,0.6) 0%, rgba(255,192,203,0) 70%);
+  border-radius: 50%;
+}
+
+.love-shadow::before {
+  top: -10px;
+  left: 0;
+}
+
+.love-shadow::after {
+  top: 0;
+  left: -10px;
+}
+
+/* Animasi mengambang */
+@keyframes floatLove {
+  0% {
+    transform: translateY(0) scale(1) rotate(45deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.2) rotate(45deg);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-60px) scale(1) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* Posisi dan delay acak */
+.pos1 { left: 10%; top: 40px; animation-delay: 0s; transform: scale(1); }
+.pos2 { left: 25%; top: 70px; animation-delay: 1s; transform: scale(0.9); }
+.pos3 { left: 40%; top: 20px; animation-delay: 2s; transform: scale(1.2); }
+.pos4 { left: 55%; top: 60px; animation-delay: 0.5s; transform: scale(1); }
+.pos5 { left: 70%; top: 30px; animation-delay: 1.8s; transform: scale(0.8); }
+.pos6 { left: 85%; top: 10px; animation-delay: 2.5s; transform: scale(1.3); }
+.pos7 { left: 15%; top: 80px; animation-delay: 1.2s; transform: scale(0.95); }
+.pos8 { left: 35%; top: 50px; animation-delay: 0.7s; transform: scale(1.1); }
+.pos9 { left: 60%; top: 90px; animation-delay: 1.9s; transform: scale(1); }
+.pos10 { left: 80%; top: 25px; animation-delay: 2.2s; transform: scale(0.85); }
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Tombol love */
+.love-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #ff80ab; /* Warna latar belakang yang lembut */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 30px;
+  padding: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Efek bayangan */
+  z-index: 100;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+}
+
+.love-btn:hover {
+  background-color: #ff4081; /* Ubah warna saat hover */
+  transform: scale(1.1); /* Membesarkan tombol sedikit */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4); /* Efek bayangan lebih besar */
+}
+
+.love-btn:active {
+  transform: scale(0.95); /* Mengurangi ukuran tombol saat ditekan */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Kembali ke bayangan normal */
+}
+
+.love-btn:focus {
+  outline: none; /* Hilangkan outline saat tombol difokuskan */
+}
+
+.section h2 {
+  scroll-margin-top: 40px; /* Jarak saat scroll */
+}
+
+#photo-album {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+#photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Selalu 3 kolom */
+  gap: 16px;
+  padding: 16px;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Rasio 1:1 (persegi) agar konsisten */
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Potong bagian luar tapi jaga rasio */
+  display: block;
+}
+
+.emoji-overlay {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  font-size: 24px;
+}
+
+/* Remove overlapping effect */
+.image-wrapper:nth-child(1) {
+  z-index: 3;
+  transform: none;  /* Remove the transform to avoid overlap */
+}
+
+.image-wrapper:nth-child(2) {
+  z-index: 2;
+  transform: none;  /* Remove the transform to avoid overlap */
+}
+
+.image-wrapper:nth-child(3) {
+  z-index: 1;
+  transform: none;  /* Remove the transform to avoid overlap */
+}
+
+.wave-path {
+  animation: waveMove 6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes waveMove {
+  0% {
+    transform: translateX(0) scaleY(1);
+  }
+  50% {
+    transform: translateX(-25%) scaleY(1.05);
+  }
+  100% {
+    transform: translateX(0) scaleY(1);
+  }
+}
+
+.cloud-divider {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 250px;
+  z-index: 1;
+  animation: cloudFloat 8s ease-in-out infinite;
+}
+
+@keyframes cloudFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.cloud-fog {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: radial-gradient(ellipse at center, rgba(255,255,255,0.3) 0%, transparent 80%);
+  opacity: 0.5;
+  animation: fogMove 20s linear infinite;
+}
+
+@keyframes fogMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.image-wrapper:nth-child(2) {
+  margin-top: 40px; /* Naikkan gambar tengah */
+}
+
+.image-wrapper:nth-child(3) {
+  margin-top: 0;
+}
+
+.image-wrapper:nth-child(2) img {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
+@keyframes neonBorder {
+  0% {
+    box-shadow: 0 0 4px #8ee9ff, 0 0 6px #8ee9ff, 0 0 10px #8ee9ff, 0 0 14px #8ee9ff;
+  }
+  25% {
+    box-shadow: 0 0 4px #ffb3f7, 0 0 6px #ffb3f7, 0 0 10px #ffb3f7, 0 0 14px #ffb3f7;
+  }
+  50% {
+    box-shadow: 0 0 4px #a4ffe1, 0 0 6px #a4ffe1, 0 0 10px #a4ffe1, 0 0 14px #a4ffe1;
+  }
+  75% {
+    box-shadow: 0 0 4px #fff6b3, 0 0 6px #fff6b3, 0 0 10px #fff6b3, 0 0 14px #fff6b3;
+  }
+  100% {
+    box-shadow: 0 0 4px #8ee9ff, 0 0 6px #8ee9ff, 0 0 10px #8ee9ff, 0 0 14px #8ee9ff;
+  }
+}
+
+
+.image-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  animation: neonBorder 4s linear infinite;
+  transition: transform 0.3s ease;
+}
+
+.image-wrapper:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+
+</style>
+<!-- Locomotive Scroll CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<div class="container" data-scroll-container>
+
+<!-- Section 1 -->
+<div id="section1" class="section" data-scroll-section>
+  <div class="content">
+    <div class="text">
+      <h2 id="section1Title">Awal Chat di Suatu Sosmed</h2>
+      <div class="chat-preview">
+        <strong>Victor :</strong> "Happy sunday yaaa, GBU"<br>
+        <strong>Novi :</strong> "Happy sunday"<br>
+        <strong>Victor :</strong> "Boleh kenal? Hehe"<br>
+        <strong>Novi :</strong> "Iyah"<br><br>
+        <p>Akhirnya kami pun intens chatan dan mencoba bertemu secara langsung</p>
+      </div>
+    </div>
+    <div class="image">
+      <img src="08.45.jpg" alt="Chat Screenshot TikTok">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+  </div>
+</div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+  <button id="loveBtn" class="love-btn">
+    ❤️
+  </button> 
+  <br><br><br><br><br><br>
+
+
+<!-- Section 2 -->
+<div id="section2" class="section" data-scroll-section>
+  <div class="content">
+    <div class="text">
+      <h2 id="section2Title">First Our Photo</h2>
+      <p>Berawal dari gereja bersama, karena hujan akhirnya kita berteduh di Family Mart dan disinilah foto bareng kita untuk pertama kalinya.</p>
+    </div>
+    <div class="image">
+      <img src="foto_pertama.jpg" alt="First Meetup">
+      <div class="emoji-overlay"></div>
+    </div>
+  </div>
+</div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+<br>
+<br><br><br><br><br><br>
+
+  <!-- Section 3 -->
+  <div id="section3" class="section">
+    <div class="content">
+      <div class="text">
+        <h2 id="section3Title">Liburan ke Dufan</h2>
+        <!-- <h2>Liburan ke Dufan</h2> -->
+        <p>Sebenarnya mau nembak dia di dufan makanya masih panggil ito, tapi malah sebelum ke dufan udah jadiaan :D</p>
+        <div class="chat-preview">
+          <strong>Victor :</strong> "Kalo dufan udahnya ito kesana?"<br>
+          <strong>Novi :</strong> "Blom to"<br>
+          <strong>Victor :</strong> "Bah nanti boleh lah coba to, lumayan buat teriak kencang2 wkwk"<br>
+        </div>
+      </div>
+      <div class="image">
+        <img src="dufan_chat.jpg" alt="Dufan Trip">
+        <div class="floating-icons">
+            <div class="heart"></div>
+            <div class="heart"></div>
+            <div class="heart"></div>
+        </div>
+      </div>    
+    </div>
+    <div id="photo-album">
+      <div id="photo-gallery">
+        <div class="image-wrapper">
+          <img src="dufan2.jpg" alt="Dufan Ride">
+          <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="dufan1.jpg" alt="Dufan Together">
+          <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="dufan3.jpg" alt="Laughing Moment">
+          <div class="emoji-overlay"></div>
+        </div>
+      </div>
+    </div>
+    
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+<br><br><br><br><br><br>
+
+  <!-- Section 4 -->
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>Trip to Bogor - Curug</h2>
+        <p>Disini kita udah jadian, tapi perjalanannya juga penuh ujian karena hujan, berangkat dari Jakarta jam 7 pagi eh sampe Bogor jam 2 siang, baru bentar disana hujan badai lagi, sedih tapi seru...</p>
+        <div class="chat-preview">
+            <strong>Victor :</strong> "Curug beb?"<br>
+            <strong>Novi :</strong> "kuyyyyyyyyyyyyyyyyyyyyyyyyyy"<br>
+          </div>
+      </div>
+      <div class="image">
+        <img src="curug_chat.jpg" alt="Curug Naga">
+      </div>
+    </div>
+    <div class="gallery">
+        <div class="image-wrapper">
+            <img src="curug2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+            <img src="curug3.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+            <img src="curug1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+<br><br><br><br><br>
+ <!-- <br> -->
+
+  <!-- Section 5 -->
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>Liburan ke Samosir sekalian ke Rumahnya (Porsea katanya)</h2>
+        <p>Dulu waktu sebelum jadian udah bahas duluan ke samosirnya wkwkwk dan pertama kali ke rumahnya yg katanya <b>di Porsea</b> tapi bukan sih (<b>Narumonda tepatnya </b> :v), sekalian mengikat dia dengan cincin yg kami beli disana deh..</p>
+        <div class="chat-preview">
+            <strong>Novi :</strong> "Wkwkwkwkwkw kesana lagi lah to"<br>
+            <strong>Victor :</strong> "Ajakin lah wkwkwkwk"<br>
+            <strong>Novi :</strong> "Kapan, bulan 12 ini ?"<br>
+            <strong>Victor :</strong> "Emang mau diajakin kemana ni wkwkwkwk"<br>
+            <strong>Novi :</strong> "Samosir"<br>
+          </div>
+      </div>
+      <div class="image">
+        <img src="samosir_chat.jpg" alt="Samosir Main Photo">
+      </div>
+    </div>
+    <!-- <div class="gallery">
+      <img src="samosir4.jpg" alt="Danau Toba View">
+      <img src="samosir1.jpg" alt="Boat Ride">
+      <img src="samosir3.jpg" alt="Sunset Together">
+    </div> -->
+    <div id="photo-album">
+      <div id="photo-gallery">
+        <div class="image-wrapper">
+          <img src="samosir4.jpg" alt="Danau Toba View">
+          <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="samosir1.jpg" alt="Boat Rider">
+          <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+          <img src="samosir3.jpg" alt="Sunset Together">
+          <div class="emoji-overlay"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+<br><br><br><br><br>
+
+  <div id="section4" class="section">
+    <div class="content">
+      <div class="text">
+        <h2 id="section4Title">Diskusi tipis-tipis ala kita</h2>
+        <p>Nah disini kita tepatnya pulang dari Porsea eh Narumonda kita langsung memutuskan untuk rencana yg serius yaitu Pernikahan, karna kita sering nongkrong di Family Mart jadinya mau buat Family deh tapi gaada Mart nya, kalo punya Mart sih amin deh hahaha, kita mulai menentukan dan merencanakan tanngal pernikahan kita...</p>
+      </div>
+      <div class="image">
+        <img src="plan.jpg" alt="Lamaran">
+      </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+<br><br><br><br><br>
+ <!-- <br> -->
+
+  <!-- Next Sections -->
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>First Our Photobox</h2>
+        <p>Ini direncanakan sama kita sih untuk membiasakan diri agar bisa difoto dikamera wkwkwk latihan prawedding ceritanya walaupun si dia pas photobox liatnya ke layar bukan ke kamera hahahahaha</p>
+        <div class="chat-preview">
+            <strong>Novi :</strong> "Beb sabtu kita jadi photobox"<br>
+            <strong>Victor :</strong> "Boleh sayang"<br>
+          </div>
+      </div>
+      <div class="image">
+        <img src="photobox_chat.jpg" alt="Curug Naga">
+      </div>
+      </div>
+      <div class="gallery">
+        <div class="image-wrapper">
+            <img src="photobox1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <!-- <div class="image-wrapper">
+            <img src="photobox2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <div class="image-wrapper">
+            <img src="photobox3.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+            <img src="photobox4.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+  <br><br><br><br><br>
+
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>Preparation - Kebaya</h2>
+        <p>Pokoknya sekali datang langsung deal wkwk langsung dapat songket dan bahan kebayanya, paling gak bisa emang survey sana survey sini... Gas bungkus, Gas jahit deh hahaha</p>
+      </div>
+      <div class="image">
+        <img src="bahan_kby1.jpg" alt="preparation">
+      </div>
+      <div class="image-wrapper">
+        <img src="bahan_kby2.jpg" alt="Nature Walk">
+        <div class="emoji-overlay"></div>
+    </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+  <br><br><br><br><br>
+
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>Preparation - Jas & Kemeja</h2>
+        <p>Ke mall mau survey buat jas dimana, baru masuk 1 tempat langsung ngukur, walaupun ada sedikit drama yg tak akan terlupakan wkwkwkw</p>
+        <p>Kalo kemeja niatnya cuma liat-liat doang ke mall, eh malah langsung beli wkwkwk... Tapi kalo ini banyakan pas gak pas gaknya sampe semua dicobain wkwkwk akhrinya ketemu lah yg pas</p>
+      </div>
+      <div class="image">
+        <img src="bahan_jas.jpg" alt="Curug Naga">
+      </div>
+      </div>
+      <div class="gallery">
+        <!-- <div class="image-wrapper">
+            <img src="photobox1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <!-- <div class="image-wrapper">
+            <img src="photobox2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <div class="image-wrapper">
+            <img src="kemeja1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+            <img src="kemeja2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+  <br><br><br><br><br>
+
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>Preparation - Fitting 1 Kebaya</h2>
+        <p>🏍ﮩ٨ـﮩﮩ٨ـ♡ﮩ٨ـﮩﮩ٨ـ Meluncur ke parung bogor.... ngeeeeenggggg pulang dari sana muka langsung item berdebu wkwkwk</p>
+      </div>
+      </div>
+      <div class="gallery">
+        <!-- <div class="image-wrapper">
+            <img src="photobox1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <!-- <div class="image-wrapper">
+            <img src="photobox2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <div class="image-wrapper">
+            <img src="fitting_kby1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+            <img src="fitting_kby2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+  <br><br><br><br><br>
+
+  <div class="section">
+    <div class="content">
+      <div class="text">
+        <h2>Preparation - Fitting 1 Jas</h2>
+        <p>Dadakan sih diluar BMKG jasnya udah jadi 2 minggu, kirain lama hahahaha untung cuma di Bekasi</p>
+      </div>
+      </div>
+      <div class="gallery">
+        <!-- <div class="image-wrapper">
+            <img src="photobox1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <!-- <div class="image-wrapper">
+            <img src="photobox2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div> -->
+        <div class="image-wrapper">
+            <img src="fitting_jas1.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+        <div class="image-wrapper">
+            <img src="fitting_jas2.jpg" alt="Nature Walk">
+            <div class="emoji-overlay"></div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="romantic-divider">
+    <div class="floating-love-shadow">
+      <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+      <div class="love-shadow pos1"></div>
+      <div class="love-shadow pos2"></div>
+      <div class="love-shadow pos3"></div>
+      <div class="love-shadow pos4"></div>
+      <div class="love-shadow pos5"></div>
+      <div class="love-shadow pos6"></div>
+      <div class="love-shadow pos7"></div>
+      <div class="love-shadow pos8"></div>
+      <div class="love-shadow pos9"></div>
+      <div class="love-shadow pos10"></div>
+    </div>
+    <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path fill="#fce4ec" fill-opacity="1"
+        d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+      </path>
+    </svg>
+    <div class="cloud-fog"></div> 
+  </div>
+  <br><br><br><br><br>
+
+<div id="section5" class="section">
+  <div class="content">
+    <div class="text">
+      <h2  id="section5Title">Our Prawedding</h2>
+      <p>Disini kita memantapkan untuk melakukan sesi prawedding di Praweddingku, walaupun saat sesi foto kita berdua sering nahan ketawa hahaha.. #JakTimCikupa</p>
+    <br><br><div class="image">
+      <img src="prawed1.JPEG" alt="Prawedding1">
+    </div>
+    </div>
+    <div class="gallery">
+      <div class="image-wrapper">
+          <img src="prawed2.JPEG" alt="Nature Walk">
+          <div class="emoji-overlay"></div>
+      </div>
+      <div class="image-wrapper">
+          <img src="prawed3.JPEG" alt="Nature Walk">
+          <div class="emoji-overlay"></div>
+      </div>
+      <div class="image-wrapper">
+          <img src="prawed4.JPEG" alt="Nature Walk">
+          <div class="emoji-overlay"></div>
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class="romantic-divider">
+  <div class="floating-love-shadow">
+    <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+    <div class="love-shadow pos1"></div>
+    <div class="love-shadow pos2"></div>
+    <div class="love-shadow pos3"></div>
+    <div class="love-shadow pos4"></div>
+    <div class="love-shadow pos5"></div>
+    <div class="love-shadow pos6"></div>
+    <div class="love-shadow pos7"></div>
+    <div class="love-shadow pos8"></div>
+    <div class="love-shadow pos9"></div>
+    <div class="love-shadow pos10"></div>
+  </div>
+  <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path fill="#fce4ec" fill-opacity="1"
+      d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+    </path>
+  </svg>
+  <div class="cloud-fog"></div> 
+</div>
+<br><br><br><br><br>
+
+<div>
+  <!-- <div class="content">
+    <div class="text">
+      <h2>Our Wedding</h2>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+      <p>text for wedding</p>
+    </div>
+    <div class="image">
+      <img src=".jpg" alt="wedding">
+    </div>
+  </div> -->
+</div>
+
+<div class="section">
+  <div class="content">
+    <div class="text">
+      <h2>Our Engagement</h2>
+      <p>Coming soon, Porsea</p>
+    </div>
+    <div class="image">
+      <img src="cincin.jpg" alt="engagement">
+    </div>
+  </div>
+</div>
+
+<div class="romantic-divider">
+  <div class="floating-love-shadow">
+    <!-- Kita akan isi heart lewat CSS/JS atau banyak manual tapi dengan posisi acak -->
+    <div class="love-shadow pos1"></div>
+    <div class="love-shadow pos2"></div>
+    <div class="love-shadow pos3"></div>
+    <div class="love-shadow pos4"></div>
+    <div class="love-shadow pos5"></div>
+    <div class="love-shadow pos6"></div>
+    <div class="love-shadow pos7"></div>
+    <div class="love-shadow pos8"></div>
+    <div class="love-shadow pos9"></div>
+    <div class="love-shadow pos10"></div>
+  </div>
+  <svg class="cloud-divider" viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path fill="#fce4ec" fill-opacity="1"
+      d="M0,224C60,208,120,192,180,197.3C240,203,300,229,360,240C420,251,480,245,540,234.7C600,224,660,213,720,213.3C780,213,840,223,900,234.7C960,245,1020,256,1080,250.7C1140,245,1200,223,1260,208C1320,192,1380,192,1440,197.3L1440,320L1380,320C1320,320,1260,320,1200,320C1140,320,1080,320,1020,320C960,320,900,320,840,320C780,320,720,320,660,320C600,320,540,320,480,320C420,320,360,320,300,320C240,320,180,320,120,320C60,320,0,320,0,320Z">
+    </path>
+  </svg>
+  <div class="cloud-fog"></div> 
+</div>
+<br><br><br><br><br>
+
+<div class="section">
+  <div class="content">
+    <div class="text">
+      <h2>Our Wedding</h2>
+      <p>Coming soon, Lampung</p>
+    </div>
+    <div class="image">
+      <img src="hand.jpg" alt="wedding">
+    </div>
+  </div>
+</div>
+
+  <div class="footer">
+    That’s us, with the laughter, tears, and debates we’ve gone through.<br>
+    And then, we became one, forever & always.<br>
+    Victor Pasaribu & Novita Sibuea
+  </div>
+
+  <!-- Audio for Section 1 -->
+<audio id="bgMusic1" loop>
+  <source src="song1.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- Audio for Section 2 -->
+<audio id="bgMusic2" loop>
+  <source src="song2.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- Audio for Section 3 -->
+<audio id="bgMusic3" loop>
+  <source src="song3.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- Audio for Section 4 -->
+<audio id="bgMusic4" loop>
+  <source src="song4.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+
+<!-- Audio for Section 5 -->
+<audio id="bgMusic5" loop>
+  <source src="song5.mp3" type="audio/mpeg">
+  Browser kamu tidak mendukung audio.
+</audio>
+</div>
+
+<script>
+    const overlays = document.querySelectorAll(".emoji-overlay");
+    const emojisGallery = ["💖", "💘", "💞", "💕", "❤️", "✨"];
+  
+    function createFloatingEmoji(target) {
+      const emoji = document.createElement("span");
+      emoji.innerText = emojisGallery[Math.floor(Math.random() * emojisGallery.length)];
+      emoji.style.left = Math.random() * 100 + "%";
+      emoji.style.fontSize = Math.random() * 15 + 20 + "px"; // Emoji lebih besar untuk efek lebih terasa
+      emoji.style.animationDelay = Math.random() * 2 + "s"; // Variasi waktu delay untuk efek lebih ramai
+      target.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 4000); // Emoji akan hilang setelah animasi selesai
+    }
+  
+    // Menambah emoji setiap interval lebih cepat
+    overlays.forEach((overlay) => {
+      setInterval(() => createFloatingEmoji(overlay), 200); // Interval lebih cepat untuk lebih banyak emoji
+    });
+  </script>
+
+<script>
+  const bgMusic1 = document.getElementById("bgMusic1"); // Musik untuk Section 1
+  const bgMusic2 = document.getElementById("bgMusic2"); // Musik untuk Section 2
+  const bgMusic3 = document.getElementById("bgMusic3"); // Musik untuk Section 3
+  const bgMusic4 = document.getElementById("bgMusic4"); // Musik untuk Section 4
+  const bgMusic5 = document.getElementById("bgMusic5"); // Musik untuk Section 4
+
+  // Fungsi untuk membuat transisi volume yang halus
+  function fadeOut(audio) {
+    let volume = 1; // Mulai dari volume penuh
+    const interval = setInterval(() => {
+      if (volume > 0) {
+        volume -= 0.05; // Kurangi volume
+        audio.volume = volume;
+      } else {
+        clearInterval(interval);
+        audio.pause(); // Hentikan musik setelah volume 0
+      }
+    }, 50); // Setiap 50ms volume akan berkurang
+  }
+
+  function fadeIn(audio) {
+    let volume = 0; // Mulai dari volume 0
+    audio.play(); // Pastikan musik mulai diputar
+    const interval = setInterval(() => {
+      if (volume < 1) {
+        volume += 0.05; // Naikkan volume
+        audio.volume = volume;
+      } else {
+        clearInterval(interval);
+      }
+    }, 50); // Setiap 50ms volume akan meningkat
+  }
+
+  // Fungsi untuk mengatur musik sesuai dengan section yang diklik
+  function changeMusic(sectionId) {
+    if (sectionId === "section1") {
+      fadeOut(bgMusic2);  // Fade out musik section 2
+      fadeIn(bgMusic1);   // Fade in musik section 1
+    } else if (sectionId === "section2") {
+      fadeOut(bgMusic1);  // Fade out musik section 1
+      fadeIn(bgMusic2);   // Fade in musik section 2
+    } else if (sectionId === "section3") {
+      fadeOut(bgMusic2);  // Fade out musik section 2
+      fadeIn(bgMusic3);   // Fade in musik section 3
+    } else if (sectionId === "section4") {
+      fadeOut(bgMusic3);  // Fade out musik section 3
+      fadeIn(bgMusic4);   // Fade in musik section 4
+    } else if (sectionId === "section5") {
+      fadeOut(bgMusic4);  // Fade out musik section 4
+      fadeIn(bgMusic5);   // Fade in musik section 5
+    }
+  }
+
+  // Event listener untuk klik judul section 1
+  document.getElementById("section1Title").addEventListener("click", function() {
+    changeMusic("section1");
+  });
+
+  // Event listener untuk klik judul section 2
+  document.getElementById("section2Title").addEventListener("click", function() {
+    changeMusic("section2");
+  });
+
+  // Event listener untuk klik judul section 3
+   document.getElementById("section3Title").addEventListener("click", function() {
+    changeMusic("section3");
+  });
+
+   // Event listener untuk klik judul section 4
+   document.getElementById("section4Title").addEventListener("click", function() {
+    changeMusic("section4");
+  });
+
+     // Event listener untuk klik judul section 5
+     document.getElementById("section5Title").addEventListener("click", function() {
+    changeMusic("section5");
+  });
+
+//   const loveButton = document.getElementById('loveBtn');
+
+// loveButton.addEventListener('click', () => {
+//   window.scrollBy({
+//     top: window.innerHeight,
+//     left: 0,
+//     behavior: 'smooth'
+//   });
+// });
+  
+</script>
+
+<script>
+  const loveButton = document.getElementById('loveBtn');
+  const sections = document.querySelectorAll('.section');
+  let currentIndex = -1;
+
+  loveButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % sections.length;
+    const targetSection = sections[currentIndex];
+    const title = targetSection.querySelector('h2');
+
+    if (title) {
+      title.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+//   window.scrollTo({
+//   top: document.body.scrollHeight,
+//   behavior: 'smooth'
+// });
+
+// // Atau untuk melakukan scrolling setiap beberapa detik
+// setInterval(() => {
+//   window.scrollBy({
+//     top: 4,  // Scroll 50px ke bawah
+//     behavior: 'smooth'
+//   });
+// }, 60);  // Setiap 100ms
+
+</script>  
+
+<!-- Locomotive Scroll JS -->
+<script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.4/dist/locomotive-scroll.min.js"></script>
+
+<script>
+  const scroll = new LocomotiveScroll({
+    el: document.querySelector('.container'), // elemen utama untuk scroll
+    smooth: true,
+    multiplier: 1.2,
+    smartphone: {
+      smooth: true
+    },
+    tablet: {
+      smooth: true
+    }
+  });
+</script>
+
+<script>
+  let scrollSpeed = 1.5; // Kecepatan scroll, ubah sesuai selera
+  function autoScroll() {
+    window.scrollBy(0, scrollSpeed);
+    requestAnimationFrame(autoScroll);
+  }
+
+  // Jalankan saat halaman sudah siap
+  window.addEventListener("load", () => {
+    autoScroll();
+  });
+</script>
+
+
+</body>
+</html>
